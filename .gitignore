@@ -1,0 +1,11 @@
+package-lock.json
+node_modules/
+src/
+.vscode/
+*.rar
+*.zip
+.DS_Store
+Thumbs.db
+gulpfile.js
+package.json
+readme.md
