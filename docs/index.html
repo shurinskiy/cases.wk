@@ -1,35 +1,100 @@
 <!DOCTYPE html> 
 <html lang="ru"> 
-<head> 
+<head class=""> 
 	<meta charset="UTF-8"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
 	<link rel="shortcut icon" href="images/favicon.ico"> 
-	<link rel="stylesheet" href="style.css"> 
-	<title></title> 
+	<link rel="stylesheet" href="style.css">
+	
+		<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&amp;family=Ubuntu:wght@300;400;700&amp;display=swap" rel="stylesheet">
+	
+	<title>Готовые решения</title> 
 </head> 
-<body class="home"> 
+<body class=""> 
  
 <header class="header"> 
 	<div class="container">
 		<div class="header__navi">
 			<a class="header__navi-item" href="./">главная</a>
-			<a class="header__navi-item" href="./quiz.html">квиз</a>
+			<a class="header__navi-item" href="./quiz.html">квиз с одиночным выбором</a>
+			<a class="header__navi-item" href="./quiz2.html">квиз со множественным выбором</a>
 			<a class="header__navi-item" href="./cards.html">карточки</a>
 			<a class="header__navi-item" href="./form.html">форма</a>
+			<a class="header__navi-item" href="./calculator.html">калькулятор</a>
 		</div>
 	</div>
 </header> 
- 
 
-<section class="q-quiz">
-	<div class="q-quiz__container container">
-		<div class="q-quiz__inner" id="q-quiz">
-			<div class="q-quiz__page q-page"></div>
-			<div class="q-quiz__results q-results"></div>
-			<div class="q-quiz__controls">
-				<button class="q-quiz__btn q-quiz__btn_prev">Назад</button>
-				<button class="q-quiz__btn q-quiz__btn_next">Далее</button>
-				<button class="q-quiz__btn q-quiz__btn_restart">С начала</button>
+
+<section class="m-quiz">
+	<div class="m-quiz__container container">
+		<div class="m-quiz__inner" id="m-quiz">
+			<div class="m-quiz__page m-page">
+				<div class="m-page__top">
+					<div class="m-page__top-left"><p>Всего <span data-numeral="шаг,шага,шагов"></span><br> и мы подготовим персональное коммерческое предложение</p></div>
+					<div class="m-page__top-right">
+						<p><span>Ответьте на вопросы</span>, чтобы мы смогли сделать быстрый расчет стоимости работ</p>
+					</div>
+				</div>
+				<div class="m-page__content"></div>
+			</div>
+			<div class="m-quiz__results m-results">
+				<div class="m-results__data"></div>
+				<div class="m-results__content">
+					<div class="m-results__form m-form">
+						<div class="m-form__fields">
+							<fieldset class="m-form__field">
+								<input type="text" name="name" required>
+								<span>Ваше имя</span>
+							</fieldset>
+							<fieldset class="m-form__field">
+								<input type="text" name="phone" required>
+								<span>Номер телефона</span>
+							</fieldset>
+							<fieldset class="m-form__field">
+								<input type="text" name="email" required>
+								<span>Email</span>
+							</fieldset>
+							<fieldset class="m-form__field">
+								<input type="text" name="org" required>
+								<span>Название организации</span>
+							</fieldset>
+							<fieldset class="m-form__field">
+								<input type="text" name="address" required>
+								<span>Адрес объекта</span>
+							</fieldset>
+							<input class="m-form__field-comment" name="comment" type="text" placeholder="Комментарий">
+						</div>
+						<div class="m-form__side">
+							<label class="m-form__file">
+								Прикрепить техническое задание
+								<input type="file" name="file">
+							</label>
+							<p class="m-form__how-get"><span>Как вам удобнее получить</span> коммерческое предложение?</p>
+							<div class="m-form__socials">
+								<label class="m-form__get">
+									<div class="m-form__get-image"><img src="./images/pskgeo/m-form-soc-mail.png" alt=""></div>
+									<input type="checkbox" name="mail">
+								</label>
+								<label class="m-form__get">
+									<div class="m-form__get-image"><img src="./images/pskgeo/m-form-soc-wapp.png" alt=""></div>
+									<input type="checkbox" name="wapp">
+								</label>
+								<label class="m-form__get">
+									<div class="m-form__get-image"><img src="./images/pskgeo/m-form-soc-tgm.png" alt=""></div>
+									<input type="checkbox" name="tlgm">
+								</label>
+							</div>
+							<div class="m-form__agree">Нажимая на кнопку «Отправить запрос», вы принимаете условия обработки информации</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div class="m-quiz__controls">
+				<button class="m-quiz__btn m-quiz__btn_prev">Назад</button>
+				<button class="m-quiz__btn m-quiz__btn_next">Далее</button>
+				<button class="m-quiz__btn m-quiz__btn_submit">Отправить</button>
 			</div>
 		</div>
 	</div>
