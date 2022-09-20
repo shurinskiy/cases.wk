@@ -11,21 +11,30 @@
 <body class="fr_form"> 
  
 <header class="header"> 
-	<div class="container">
+	<div class="header__container">
 		<div class="header__navi">
 			<a class="header__navi-item" href="./">главная</a>
 			<a class="header__navi-item" href="./quiz.html">квиз с одиночным выбором</a>
 			<a class="header__navi-item" href="./quiz2.html">квиз со множественным выбором</a>
+			<a class="header__navi-item" href="./quiz-pskgeo.html">квиз для pskgeo</a>
+			<a class="header__navi-item" href="./calculator.html">калькулятор для pskgeo</a>
 			<a class="header__navi-item" href="./cards.html">карточки</a>
 			<a class="header__navi-item" href="./form.html">форма</a>
-			<a class="header__navi-item" href="./calculator.html">калькулятор</a>
+			<a class="header__navi-item" href="./animation.html">ручная анимация</a>
+			<a class="header__navi-item" href="./product-gallery.html">галерея продукта</a>
+			<a class="header__navi-item" href="./parallax.html">вертикальный паралакс</a>
+			<a class="header__navi-item" href="./observer.html">использование observer</a>
+			<a class="header__navi-item" href="./accordeon.html">несколько аккордеонов</a>
+			<a class="header__navi-item" href="./layout.html">раскладка на grid</a>
+			<a class="header__navi-item" href="./climb.html">перекрывающиеся блоки</a>
+			<a class="header__navi-item" href="./scroll.html">скролл анимация</a>
 		</div>
 	</div>
 </header> 
  
 
 <section class="f-license">
-	<div class="container">
+	<div class="f-license__container">
 		<div class="f-license__inner">
 			<h2 class="f-license__title">Получи официальную лицензию РАФ</h2>
 			<form action="./" class="f-license__form f-form">
@@ -38,18 +47,23 @@
 				<fieldset class="f-form__set">
 					<legend class="f-form__title">Место жительства</legend>
 					<label class="f-form__checkbox f-form__checkbox_toggle"><input type="checkbox" checked><span>Я являюсь гражданином РФ</span></label>
-					<!-- <div class="f-form__citizenship f-form__citizenship_hidden">
-						<p>Пожалуйста, загрузите открепление от вашей Национальной Автомобильной Федерации</p>
-						<label class="f-form__button"><input type="file"><span>Загрузите изображение</span></label>
-					</div> -->
 					<div class="f-form__citizenship">
 						<input class="f-form__input" type="text" placeholder="Субъект РФ">
-						<input class="f-form__input" type="text" placeholder="Город проживания">
+						<!-- <input class="f-form__input" type="text" placeholder="Город проживания"> -->
+						<select class="f-form__select">
+							<option value="0">Город проживания</option>
+							<option value="1">Симферополь</option>
+							<option value="2">Новосибирск</option>
+							<option value="3">Воронеж</option>
+							<option value="4">Москва</option>
+							<option value="5">Севастополь</option>
+							<option value="6">Ростов</option>
+						</select>
 					</div>
 				</fieldset>
 				<fieldset class="f-form__set">
 					<legend class="f-form__title">Контактная информация</legend>
-					<input class="f-form__input phonemask" type="tel" placeholder="Телефон">
+					<input class="f-form__input" type="tel" placeholder="Телефон">
 					<input class="f-form__input" type="text" placeholder="Email">
 				</fieldset>
 				<fieldset class="f-form__docs">
