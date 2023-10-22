@@ -6,11 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
 	<link rel="shortcut icon" href="images/favicon.ico"> 
 	<link rel="stylesheet" href="style.css">
+	<link rel="preload" href="fonts/Segoe-UI.woff" as="font" type="font/woff" crossorigin>
 	
 	<title>Готовые решения</title> 
 </head> 
 <body class="form-bg"> 
- 
 <button class="header__toggle"></button>
 <header class="header">
 	<div class="header__container">
@@ -27,7 +27,7 @@
 			<a class="header__navi-item" href="./parallax.html">вертикальный паралакс</a>
 			<a class="header__navi-item" href="./observer.html">использование observer</a>
 			<a class="header__navi-item" href="./accordeon.html">несколько аккордеонов</a>
-			<a class="header__navi-item" href="./layout.html">раскладка на grid</a>
+			<a class="header__navi-item" href="./parallax-perspective.html">перспективный паралакс</a>
 			<a class="header__navi-item" href="./tabs.html">табы</a>
 			<a class="header__navi-item" href="./climb.html">перекрывающиеся блоки</a>
 			<a class="header__navi-item" href="./scroll.html">скролл анимация</a>
@@ -82,7 +82,7 @@
 					<div class="f-form__docs-block">
 						<div class="f-form__docs-info">
 							<span>Загрузите фото</span> 
-							<a class="f-form__hint" href="./" data-modal="photo"></a>
+							<a class="f-form__hint" href="./" data-modal="#photo"></a>
 						</div>
 						<label class="f-form__file"><input type="file"><span>Загрузить</span></label>
 					</div>
@@ -96,11 +96,11 @@
 				<fieldset class="f-form__set">
 					<label class="f-form__checkbox">
 						<input type="checkbox">
-						<span>Я согласен на <a href="./" data-modal="personal">обработку персональных данных</a></span>
+						<span>Я согласен на <a href="./" data-modal="#personal">обработку персональных данных</a></span>
 					</label>
 					<label class="f-form__checkbox">
 						<input type="checkbox">
-						<span>Ознакомлен с <a href="./" data-modal="license">правилами выдачи лицензий</a></span>
+						<span>Ознакомлен с <a href="./" data-modal="#license">правилами выдачи лицензий</a></span>
 					</label>
 				</fieldset>
 				<input class="f-form__button" type="submit" value="Отправить заявку">

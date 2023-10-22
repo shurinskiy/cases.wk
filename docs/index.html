@@ -1,16 +1,16 @@
 <!DOCTYPE html> 
 <html lang="ru"> 
-<!-- <head class="deep-bg"> -->
+<!-- <head class=""> -->
 <head>
 	<meta charset="UTF-8"> 
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
 	<link rel="shortcut icon" href="images/favicon.ico"> 
 	<link rel="stylesheet" href="style.css">
+	<link rel="preload" href="fonts/Segoe-UI.woff" as="font" type="font/woff" crossorigin>
 	
 	<title>Готовые решения</title> 
 </head> 
-<body class="deep-bg"> 
-
+<body class="">
 <button class="header__toggle"></button>
 <header class="header">
 	<div class="header__container">
@@ -27,7 +27,7 @@
 			<a class="header__navi-item" href="./parallax.html">вертикальный паралакс</a>
 			<a class="header__navi-item" href="./observer.html">использование observer</a>
 			<a class="header__navi-item" href="./accordeon.html">несколько аккордеонов</a>
-			<a class="header__navi-item" href="./layout.html">раскладка на grid</a>
+			<a class="header__navi-item" href="./parallax-perspective.html">перспективный паралакс</a>
 			<a class="header__navi-item" href="./tabs.html">табы</a>
 			<a class="header__navi-item" href="./climb.html">перекрывающиеся блоки</a>
 			<a class="header__navi-item" href="./scroll.html">скролл анимация</a>
@@ -43,73 +43,58 @@
 	<div class="preloader__progress"></div>
 </div>
 
-<section class="deep">
-	<div class="deep__items">
-		<div class="deep__item d-frame">
-			<h2>Beautiful World</h2>
+<section class="masonry">
+	<div class="masonry__items">
+		<div class="masonry__item">
+			<img src="./images/masonry/masonry-image-1.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame">
-			<div class="d-frame__image d-frame__image_left">
-				<img src="./images/frames/1.jpg" alt="">
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-2.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame d-frame_shaded">
-			<div class="d-frame__video d-frame__video_right">
-				<video src="./images/frames/video.mp4" autoplay loop muted></video>
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-3.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame"></div>
-		<div class="deep__item d-frame">
-			<div class="d-frame d-frame__text d-frame__text_right">
-				<h3>Pure planet</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur elit adipisicing. Nemo fugit, rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus.</p>
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-4.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame d-frame_shaded">
-			<div class="d-frame__image d-frame__image_left">
-				<img src="./images/frames/2.jpg" alt="">
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-5.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame"></div>
-		<div class="deep__item d-frame d-frame_shaded">
-			<div class="d-frame__image d-frame__image_right">
-				<img src="./images/frames/3.jpg" alt="">
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-6.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame"></div>
-		<div class="deep__item d-frame">
-			<div class="d-frame d-frame__text d-frame__text_left">
-				<h3>Ask the Mountains</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur elit. Rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus omnis quae eaque aliquam esse unde accusamus dolores non soluta.</p>
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-7.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame d-frame_shaded">
-			<div class="d-frame__image d-frame__image_right">
-				<img src="./images/frames/4.jpg" alt="">
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-8.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame d-frame">
-			<div class="d-frame__video d-frame__video_left">
-				<video src="./images/frames/video.mp4" autoplay loop muted></video>
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-9.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame"></div>
-		<div class="deep__item d-frame"></div>
-		<div class="deep__item d-frame d-frame_shaded">
-			<div class="d-frame__image d-frame__image_right">
-				<img src="./images/frames/5.jpg" alt="">
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-10.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame d-frame">
-			<div class="d-frame__video">
-				<video src="./images/frames/video.mp4" autoplay loop muted></video>
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-11.jpg" alt="">
 		</div>
-		<div class="deep__item d-frame"></div>
-		<div class="deep__item d-frame">
-			<div class="d-frame d-frame__text">
-				<p>Lorem ipsum dolor sit amet, consectetur elit. Rerum dolorem assumenda consequatur dicta error iure laboriosam temporibus omnis quae eaque aliquam esse unde accusamus dolores non soluta.</p>
-			</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-12.jpg" alt="">
+		</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-4.jpg" alt="">
+		</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-7.jpg" alt="">
+		</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-9.jpg" alt="">
+		</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-11.jpg" alt="">
+		</div>
+		<div class="masonry__item">			
+			<img src="./images/masonry/masonry-image-6.jpg" alt="">
 		</div>
 	</div>
 </section>
