@@ -1,0 +1,78 @@
+@@include("_head.html", {"head":"m-quiz"}) 
+@@include("_header.html")
+
+<section class="m-quiz">
+	<div class="m-quiz__container">
+		<div class="m-quiz__inner" id="m-quiz">
+			<div class="m-quiz__page m-page">
+				<div class="m-page__top">
+					<div class="m-page__top-left"><p>Всего <span data-numeral="шаг,шага,шагов"></span><br> и мы подготовим персональное коммерческое предложение</p></div>
+					<div class="m-page__top-right">
+						<p><span>Ответьте на вопросы</span>, чтобы мы смогли сделать быстрый расчет стоимости работ</p>
+					</div>
+				</div>
+				<div class="m-page__content"></div>
+			</div>
+			<div class="m-quiz__results m-results">
+				<form class="m-results__form m-form" id="m-form" method="post" enctype="multipart/form-data">
+					<div class="m-results__data"></div>
+					<div class="m-form__fields">
+						<fieldset class="m-form__field">
+							<input type="text" name="m-name" required>
+							<span>Ваше имя</span>
+						</fieldset>
+						<fieldset class="m-form__field">
+							<input type="text" name="m-phone" required>
+							<span>Номер телефона</span>
+						</fieldset>
+						<fieldset class="m-form__field">
+							<input type="text" name="m-email" required>
+							<span>Email</span>
+						</fieldset>
+						<fieldset class="m-form__field">
+							<input type="text" name="m-org" required>
+							<span>Название организации</span>
+						</fieldset>
+						<fieldset class="m-form__field">
+							<input type="text" name="m-address" required>
+							<span>Адрес объекта</span>
+						</fieldset>
+						<input class="m-form__field-comment" name="m-comment" type="text" placeholder="Комментарий">
+					</div>
+					<div class="m-form__side">
+						<label class="m-form__file">
+							Прикрепить техническое задание
+							<input type="file" name="m-file[]" multiple>
+						</label>
+						<p class="m-form__how-get"><span>Как вам удобнее получить</span> коммерческое предложение?</p>
+						<div class="m-form__socials">
+							<label class="m-form__get">
+								<div class="m-form__get-image"><img src="./images/pskgeo/m-form-soc-mail.png" alt=""></div>
+								<input type="checkbox" name="m-mail">
+							</label>
+							<label class="m-form__get">
+								<div class="m-form__get-image"><img src="./images/pskgeo/m-form-soc-wapp.png" alt=""></div>
+								<input type="checkbox" name="m-wapp">
+							</label>
+							<label class="m-form__get">
+								<div class="m-form__get-image"><img src="./images/pskgeo/m-form-soc-tgm.png" alt=""></div>
+								<input type="checkbox" name="m-tlgm">
+							</label>
+						</div>
+						<div class="m-form__agree">Нажимая на кнопку «Отправить запрос», вы принимаете условия обработки информации</div>
+					</div>
+					<input class="m-form__submit" type="submit" value="">
+				</form>
+			</div>
+			<div class="m-quiz__controls">
+				<div class="m-quiz__buttons">
+					<button class="m-quiz__btn m-quiz__btn_prev">Назад</button>
+					<button class="m-quiz__btn m-quiz__btn_next">Далее</button>
+					<button class="m-quiz__btn m-quiz__btn_submit">Отправить</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+@@include("_bottom.html")

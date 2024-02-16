@@ -1,0 +1,49 @@
+[
+	{
+		"question": "Первый вопрос",
+		"answers": [
+			{
+				"text": "Ответ 1",
+				"correct": true
+			},
+			{
+				"text": "Ответ 2",
+				"correct": false
+			},
+			{
+				"text": "Ответ 3",
+				"correct": false
+			}
+		]
+	},
+	{
+		"question": "Второй вопрос",
+		"answers": [
+			{
+				"text": "Ответ 1",
+				"correct": false
+			},
+			{
+				"text": "Ответ 2",
+				"correct": true
+			}
+		]
+	},
+	{
+		"question": "Третий вопрос",
+		"answers": [
+			{
+				"text": "Ответ 1",
+				"correct": false
+			},
+			{
+				"text": "Ответ 2",
+				"correct": true
+			},
+			{
+				"text": "Ответ 3",
+				"correct": false
+			}
+		]
+	}
+]

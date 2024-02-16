@@ -1,0 +1,302 @@
+{
+	"pages": {
+		"vop": {
+			"title": "Обследование на наличие взрывоопасных предметов (ВОП)",
+			"rows": {
+				"size": {
+					"square": { "value": 1200 }
+				},
+				"location": {
+					"city": {},
+					"rough": {},
+					"facility": {},
+					"onwater": {}
+				},
+				"features": {
+					"highland": {},
+					"marshland": {},
+					"forest": {},
+					"permafrost": {}
+				},
+				"additional": {
+					"maintenance": {},
+					"secure": {}
+				}
+			}
+		},
+		"tech": {
+			"title": "Техническое обслуживание зданий и сооружений",
+			"rows": {
+				"size": {
+					"title": "Строительный объем в куб. м",
+					"capacity": { "value": 1200 }
+				},
+				"location": {
+					"residential": {},
+					"facility": {}
+				},
+				"additional": {
+					"maintenance": {},
+					"secure": {},
+					"dangerous": {}
+				}
+			}
+		},
+		"arch": {
+			"title": "Археологические изыскания",
+			"rows": {
+				"size": {
+					"square": { "value": 1200 }
+				},
+				"location": {
+					"city": {},
+					"rough": {},
+					"facility": {},
+					"onwater": {}
+				},
+				"features": {
+					"highland": {},
+					"marshland": {},
+					"forest": {},
+					"permafrost": {}
+				},
+				"additional": {
+					"ike": {},
+					"secure": {}
+				}
+			}
+		},
+		"hydromet": {
+			"title": "Гидрометеорологические изыскания",
+			"rows": {
+				"size": {
+					"square": { "value": 1200 }
+				},
+				"location": {
+					"onland": {},
+					"onwater": {},
+					"presence": {}
+				},
+				"additional": {
+					"maintenance": {},
+					"secure": {}
+				}
+			}
+		},
+		"eco": {
+			"title": "Экологические изыскания",
+			"rows": {
+				"size": {
+					"square": { "value": 1200 }
+				},
+				"location": {
+					"residential": {},
+					"rough": {},
+					"facility": {},
+					"onwater": {}
+				},
+				"features": {
+					"highland": {},
+					"marshland": {},
+					"forest": {}
+				}
+			}
+		},
+		"geophys": {
+			"title": "Инженерно-геофизические изыскания",
+			"rows": {
+				"size": {
+					"square": { "value": 1200 }
+				},
+				"location": {
+					"city": {},
+					"rough": {},
+					"facility": {},
+					"onwater": {}
+				},
+				"features": {
+					"highland": {},
+					"marshland": {},
+					"forest": {},
+					"permafrost": {},
+					"karst": {}
+				},
+				"additional": {
+					"maintenance": {},
+					"secure": {},
+					"landslide": {}
+				}
+			}
+		},
+		"geodes": {
+			"title": "Инженерно-геодезические изыскания (топосъемка)",
+			"rows": {
+				"size": {
+					"square": { "value": 1200 }
+				},
+				"location": {
+					"city": {},
+					"rough": {},
+					"facility": {},
+					"onwater": {}
+				},
+				"features": {
+					"highland": {},
+					"marshland": {},
+					"forest": {},
+					"permafrost": {}
+				},
+				"additional": {
+					"reconciliation": {},
+					"registration": {},
+					"maintenance": {},
+					"secure": {},
+					"tree": {}
+				}
+			}
+		},
+		"geologlinear": {
+			"title": "Геологические изыскания для линейного объекта",
+			"rows": {
+				"size": {
+					"title": "Протяженность объекта в м.",
+					"square": { "input": "text", "unit": "M", "value": 1200 }
+				},
+				"seismicity": {
+					"seism": {}
+				},
+				"object": {
+					"vl": {},
+					"vols": {},
+					"road": {},
+					"pipeline": {},
+					"comms": {}
+				},
+				"location": {
+					"city": {},
+					"rough": {},
+					"facility": {},
+					"onwater": {}
+				},
+				"features": {
+					"highland": {},
+					"marshland": {},
+					"forest": {},
+					"permafrost": {}
+				},
+				"additional": {
+					"registration": {},
+					"maintenance": {},
+					"secure": {}
+				}
+			}
+		},
+		"geologsquare": {
+			"title": "Геологические изыскания для площадного объекта",
+			"rows": {
+				"size": {
+					"title": "Площадь объекта в кв. м.",
+					"square": { "input": "text", "unit": "M2", "value": 150 }
+				},
+				"floors": {
+					"level": {},
+					"basement": {}
+				},
+				"seismicity": {
+					"seism": { "value": 9 }
+				},
+				"foundation": {
+					"piles": {},
+					"plate": {},
+					"grillage": {},
+					"unknown": {}
+				},
+				"location": {
+					"city": {},
+					"rough": {},
+					"facility": {},
+					"onwater": {}
+				},
+				"features": {
+					"highland": {},
+					"marshland": {},
+					"forest": {},
+					"permafrost": {}
+				},
+				"additional": {
+					"reconciliation": {},
+					"registration": {},
+					"maintenance": {},
+					"secure": {}
+				}
+			}
+		}
+	},
+	"default" : {
+		"size": {
+			"required": true,
+			"title": "Площадь объекта в ГА",
+			"square": { "input": "text", "unit": "GA" },
+			"capacity": { "input": "text", "unit": "M3" }
+		},
+		"floors": {
+			"required": true,
+			"title": "Этажность и подвал",
+			"level": { "input": "text", "value": 1 },
+			"basement": { "title": "Подвал" }
+		},
+		"seismicity": {
+			"required": "",
+			"title": "Сейсмичность (от 6 до 9)",
+			"seism": { "input": "text" }
+		},
+		"foundation": {
+			"required": true,
+			"title": "Фундамент",
+			"piles": { "title": "Сваи" },
+			"plate": { "title": "Плита" },
+			"grillage": { "title": "Ростверк-лента" },
+			"unknown": { "title": "Не знаю" }
+		},
+		"object": {
+			"required": true,
+			"vl": { "title": "вл" },
+			"vols": { "title": "волс" },
+			"road": { "title": "дорога" },
+			"pipeline": { "title": "нефте/газопровод" },
+			"comms": { "title": "водоснабжение/отопление/кабели" }
+		},
+		"location": {
+			"required": true,
+			"title": "Тип локации",
+			"city": { "title": "Городская застройка" },
+			"rough": { "title": "Незастроенная территория" },
+			"residential": { "title": "Жилые объекты" },
+			"facility": { "title": "Промышленный объект" },
+			"onland": { "title": "Объекты на суше" },
+			"onwater": { "title": "Акватория" },
+			"presence": { "title": "Наличие водных объектов на территории проектирования (реки/озёра)" }
+		},
+		"features": {
+			"required": "",
+			"title": "Особенности местности",
+			"highland": { "title": "Горная" },
+			"marshland": { "title": "Болотистая" },
+			"forest": { "title": "Залесенная" },
+			"permafrost": { "title": "Вечная мерзота" },
+			"karst": { "title": "Карст" }
+		},
+		"additional": {
+			"required": "",
+			"title": "Дополнительные услуги",
+			"reconciliation": { "title": "Согласование коммуникаций" },
+			"registration": { "title": "Регистрация в территориальном фонде" },
+			"maintenance": { "title": "Cопровождение при прохождении ГГЭ" },
+			"dangerous": { "title": "Особоопасный объект" },
+			"secure": { "title": "Режимный объект" },
+			"tree": { "title": "Подеревная съемка" },
+			"landslide": { "title": "Оползни" },
+			"ike": { "title": "АКТ ИКЭ"}
+		}
+	}
+}

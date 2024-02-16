@@ -1,0 +1,61 @@
+.prlx {
+	$self: &;
+	
+	&__container {
+
+	}
+
+	&__inner {
+		padding: 100px 0 1000px;
+	}
+	
+	&__item {
+		display: flex;
+		flex-flow: row nowrap;
+		
+		&:nth-of-type(even) {
+			#{$self}__text { order: -1; }
+			
+			#{$self}__effect {
+				background-image: url('#{$images-path}/prlx/prlx-bg-image-1.jpg');
+			}
+		}
+	}
+
+	&__effect {
+		box-sizing: border-box;
+		background-color: transparent;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: cover;
+		background-image: url('#{$images-path}/prlx/prlx-bg-image-2.jpg');
+		width: 50%;
+		
+		&.parallax > * {
+			position: relative;
+			z-index: 2; 
+		}
+	}
+	
+	&__title {
+		position: relative;
+		background-color: rgba(0, 0, 0, 0.7);
+		color: #fff;
+		padding: 20px;
+		margin-right: 30%;
+		text-transform: uppercase;
+		transform: translateY(-30%);
+		top: 30%;
+	}
+	
+	&__text {
+		box-sizing: border-box;
+		width: 50%;
+		padding: 50px;
+		background-color: #eee;
+
+		> p::first-letter {
+			text-transform: uppercase;
+		}
+	}
+}

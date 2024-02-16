@@ -1,0 +1,44 @@
+.tab {
+	$self: &;
+	padding-top: 40px;
+	@keyframes tab_fade {
+		from { opacity: 0; }
+		to { opacity: 1; }
+	}
+
+	&__container {
+
+	}
+
+	&__buttons {
+		display: flex;
+		gap: 20px;
+		margin-bottom: 20px;
+	}
+
+	&__button {
+		@extend %reset-button;
+		flex-grow: 1;
+		border: 1px solid #aaa;
+		border-radius: 3px;
+		padding: 8px;
+		background-color: #efefef;
+
+		&.active {
+			background-color: #ddd;
+		}
+	}
+
+	&__blocks {
+
+	}
+
+	&__block {
+		display: none;
+		animation: tab_fade 0.4s;
+
+		&.active {
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,55 @@
+.climb {
+	$self: &;
+	padding-top: 40px;
+
+	&__container {
+
+	}
+
+	&__block {
+		border: 1px solid #bbb;
+		margin-bottom: 20px;
+		min-height: calc(100vh - 40px);
+		background-color: #f0f0f0;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		justify-content: center;
+		
+		&:not(:first-child) {
+			position: sticky;
+			top: 20px;
+		}
+		
+		&:nth-child(2) {
+			background-color: #f0fff0;
+			z-index: 1;
+		}
+		
+		&:nth-child(3) {
+			background-color: #fff0f0;
+			z-index: 2;
+		}
+		
+		&:nth-child(4) {
+			background-color: #f0f0ff;
+			z-index: 3;
+		}
+		
+		&:nth-child(5) {
+			background-color: #fffff0;
+			z-index: 4;
+		}
+
+		h2 {
+			font-size: 30px;
+			font-weight: bold;
+			margin-bottom: 30px;
+		}
+
+		p {
+			max-width: 500px;
+			margin: 0 auto;
+		}
+	}
+}

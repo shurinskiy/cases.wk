@@ -1,0 +1,201 @@
+.c-page {
+	$self: &;
+	font-family: "Ubuntu", sans-serif;
+	display: flex;
+	align-items: flex-start;
+	
+	&__container {
+		
+	}
+
+	&__controls {
+		min-height: 500px;
+		// display: flex;
+		// flex-flow: column nowrap;
+		// justify-content: space-between;
+	}
+
+	&__row {
+		display: flex;
+		margin-bottom: 20px;
+
+		&_size {
+			align-items: center;
+			margin-bottom: 30px;
+
+			#{$self}__name {
+				max-width: 250px;
+			}
+
+			#{$self}__input-text {
+
+			}
+		}
+
+		&_floors {
+			align-items: center;
+			margin-bottom: 30px;
+
+			#{$self}__name {
+				max-width: 250px;
+			}
+
+			#{$self}__input-text {
+				// margin-right: 30px;
+			}
+
+			#{$self}__input-cbox {
+				margin-bottom: 0;
+			}
+		}
+
+		&_seismicity {
+			align-items: center;
+			margin-bottom: 30px;
+
+			#{$self}__name {
+				max-width: 250px;
+			}
+
+			#{$self}__input-text {
+
+			}
+		}
+
+		&_object {
+
+			#{$self}__input-cbox {
+
+			}
+		}
+
+		&_foundation {
+
+			#{$self}__input-cbox {
+				width: 25%;
+			}
+		}
+
+		&_location {
+
+			#{$self}__input-cbox {
+				width: 50%;
+			}
+		}
+
+		&_features {
+
+			#{$self}__input-cbox {
+				width: 50%;
+			}
+		}
+
+		&_additional {
+
+			#{$self}__input-cbox {
+				width: 100%;
+			}
+		}
+	}
+
+	&__name {
+		box-sizing: border-box;
+		font-size: 16px;
+		line-height: 1.2;
+		font-weight: 500;
+		text-transform: uppercase;
+		width: 100%;
+		max-width: 170px;
+		padding-right: 10px;
+
+		span {
+			color: #3D6DF2;
+		}
+	}
+
+	&__inputs {
+		box-sizing: border-box;
+		display: flex;
+		flex-wrap: wrap;
+		flex-grow: 1;
+		align-items: center;
+	}
+
+	&__input-text {
+		box-sizing: border-box;
+		max-width: 115px;
+		border: 1px solid #C5A47E;
+		border-radius: 20px;
+		overflow: hidden;
+		
+		input {
+			@extend %reset-input;
+			display: block;
+			font-size: 16px;
+			font-weight: 700;
+			width: 100%;
+			text-align: center;
+			color: #C5A47E;
+			padding: 6px;
+		}
+	}
+
+	&__input-cbox {
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		padding: 0px 10px;
+		margin-bottom: 10px;
+		line-height: 1.0;
+
+		input {
+			@extend %reset-input;
+			display: block;
+			margin-right: 10px;
+			width: 22px;
+			height: 22px;
+			flex-shrink: 0;
+			border-radius: 3px;
+			border: 1px solid #C5A47E;
+			cursor: pointer;
+	
+			&:checked {
+				background: svg-url('<svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.74707 5.74799L7.52805 11.124L14.1701 3.81796L16.5601 1.18896" stroke="#C5A47E" stroke-width="3"/></svg>') center / 18px 13px no-repeat transparent;
+			}
+		}
+	}
+
+	&__result {
+		box-sizing: border-box;
+		width: 225px;
+		min-height: 375px;
+		height: 100%;
+		flex-shrink: 0;
+		padding-top: 40px;
+		margin: 20px 50px 0 0;
+		background: url('./images/pskgeo/c-form__result.png') center top / auto no-repeat transparent;
+		display: flex;
+		align-items: center;
+		flex-flow: column nowrap;
+	}
+
+	&__result-current {
+		font-family: "Rubik", sans-serif;
+		font-size: 24px;
+		line-height: 1.1;
+		font-weight: 700;
+		color: #3D6DF2;
+		text-align: right;
+		width: calc(100% - 60px);
+	}
+
+	&__result-total {
+		font-family: "Rubik", sans-serif;
+		font-size: 24px;
+		line-height: 1.1;
+		font-weight: 700;
+		margin-top: auto;
+		text-align: right;
+		width: calc(100% - 20px);
+	}
+}

@@ -1,0 +1,103 @@
+@@include("_head.html", {"class":"form-bg"}) 
+@@include("_header.html") 
+
+<section class="f-license">
+	<div class="f-license__container">
+		<div class="f-license__inner">
+			<h2 class="f-license__title">Получи официальную лицензию РАФ</h2>
+			<form action="./" class="f-license__form f-form">
+				<fieldset class="f-form__set">
+					<legend class="f-form__title">Основная информация</legend>
+					<input class="f-form__input" type="text" placeholder="Имя">
+					<input class="f-form__input" type="text" placeholder="Фамилия">
+					<input class="f-form__input datepicker-here" type="text" placeholder="Дата рождения">
+				</fieldset>
+				<fieldset class="f-form__set">
+					<legend class="f-form__title">Место жительства</legend>
+					<label class="f-form__checkbox f-form__checkbox_toggle"><input type="checkbox" checked><span>Я являюсь гражданином РФ</span></label>
+					<div class="f-form__citizenship">
+						<input class="f-form__input" type="text" placeholder="Субъект РФ">
+						<!-- <input class="f-form__input" type="text" placeholder="Город проживания"> -->
+						<select class="f-form__select">
+							<option value="0">Город проживания</option>
+							<option value="1">Симферополь</option>
+							<option value="2">Новосибирск</option>
+							<option value="3">Воронеж</option>
+							<option value="4">Москва</option>
+							<option value="5">Севастополь</option>
+							<option value="6">Ростов</option>
+						</select>
+					</div>
+				</fieldset>
+				<fieldset class="f-form__set">
+					<legend class="f-form__title">Контактная информация</legend>
+					<input class="f-form__input" type="tel" placeholder="Телефон">
+					<input class="f-form__input" type="text" placeholder="Email">
+				</fieldset>
+				<fieldset class="f-form__docs">
+					<p class="f-form__title">Документы</p>
+					<div class="f-form__docs-block">
+						<div class="f-form__docs-info">
+							<span>Паспорт или справку о его получении</span> 
+						</div>
+						<label class="f-form__file"><input type="file"><span>Загрузить</span></label>
+					</div>
+					<div class="f-form__docs-block">
+						<div class="f-form__docs-info">
+							<span>Загрузите фото</span> 
+							<a class="f-form__hint" href="./" data-modal="#photo"></a>
+						</div>
+						<label class="f-form__file"><input type="file"><span>Загрузить</span></label>
+					</div>
+					<div class="f-form__citizenship f-form__citizenship_hidden">
+						<div class="f-form__docs-info">
+							<span>Открепление от вашей Национальной Автомобильной Федерации</span> 
+						</div>
+						<label class="f-form__file"><input type="file"><span>Загрузить</span></label>
+					</div>
+				</fieldset>
+				<fieldset class="f-form__set">
+					<label class="f-form__checkbox">
+						<input type="checkbox">
+						<span>Я согласен на <a href="./" data-modal="#personal">обработку персональных данных</a></span>
+					</label>
+					<label class="f-form__checkbox">
+						<input type="checkbox">
+						<span>Ознакомлен с <a href="./" data-modal="#license">правилами выдачи лицензий</a></span>
+					</label>
+				</fieldset>
+				<input class="f-form__button" type="submit" value="Отправить заявку">
+			</form>
+		</div>
+	</div>
+	<div class="modal__hidden">
+		<div id="personal">
+			<h2>Став обладателем лицензии:</h2>
+			<p>а) Я понимаю и полностью принимаю весь риск и опасность автомобильных соревнований и обязуюсь полностью соблюдать все требования ФИА и РАФ касающиеся безопасности.</p>
+			<p>б) Я обязуюсь соблюдать:</p>
+			<p>– 329–ФЗ; - Международный спортивный кодекс ФИА, Спортивныий кодекс РАФ и Приложения к ним; – Правила и другие регламентирующие документы ФИА и РАФ, положения о соревнованиях, а также дополнения к ним.</p>
+			<p>в) Согласен с обработкой и хранением данных, указанных в заявлении, исключительно в целях изготовления, оформления и контроля лицензии в течение срока её действия.</p>
+		</div>
+		<div id="license">
+			<h2>Правила выдачи лицензий:</h2>
+			<p>Подставивший отметку о согласии дает свое согласие на сбор и обработку данных, включая персональные и личные данные (такие как информация медицинского характера) соответственно авторизованным лицом, представляющим Институт ФИА по безопасности и экологичности автоспорта (ФИАИ), члена ФИАИ или Национальную автомобильную федерацию, касающиеся его/ее участия в происшествии или инциденте на автомобильных соревнования и относящиеся ТОЛЬКО к самому происшествию или инциденту и его непосредственным последствиям, включая любые полученные травмы</p>
+
+			<p>Настоящим нижеподписавшийся дает согласие на передачу персональных данных от стран, не входящих в ЕС, в ЕС и от стран ЕС в страны, не входящие в ЕС, в которых могут потенциально находиться третьи стороны</p>
+			
+			<p>Подставивший отметку о согласии соглашается, что указанные данные могут храниться в электронном виде в течение или после периода действия лицензии во Всемирной базе данных о происшествиях в автоспорте (WADB) в Европейском Союзе и использоваться в любое время, если не удалены по его/ее просьбе, с единственной целью проведения исследований для улучшения безопасности в автомобильных соревнованиях</p>
+			
+			<p>Подставивший отметку о согласии подтверждает, что прочитал и полностью понял опубликованный ФИА Справочник по WADB, в котором приводится дальнейшая информация в отношении вышесказанного сбора и обработки данных, в том числе условия, при которых я могу получать доступ, вносить поправки, добиваться уничтожения этих данных и на законных основаниях делать возражения относительно обработки персональных данных.</p>
+		</div>
+		<div id="photo">
+			<h2>Требования к фотографии:</h2>
+			<p>- фотография должна быть выполнена в цветном</p>
+			<p>- фото должно быть строго в анфас</p>
+			<p>- овал лица должен составлять не менее 70 - 80 процентов по высоте фотографи</p>
+			<p>- головные уборы допускаются для граждан, чьи религиозные убеждения запрещаютпоявляться перед - посторонними без головного убора, при условии, что он не скрываетовал лица.</p>
+			<p>- тем, кто регулярно носит очки, потребуется фотография в очках, при условии, чтоглаза видны отчетливо и на стеклах нет бликов от вспышки.</p>
+			<p>- конкретных ограничений про сроку с момента съемки нет, главное- чтобы нафотографии не было существенных изменений во внешности.</p>
+		</div>
+	</div>
+</section>
+
+@@include("_bottom.html")

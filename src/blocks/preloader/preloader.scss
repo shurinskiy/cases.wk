@@ -1,0 +1,43 @@
+.preloader {
+	$self: &;
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.9);
+	
+	&_done {
+		transition: opacity 0.8s;
+		opacity: 0;
+	}
+
+	&__progress {
+		height: 1px;
+		background: #fff;
+		position: absolute;
+		width: 3%;
+		top: 50%;
+		transition: width 0.3s;
+	}
+
+	&__counter {
+		font-size: 0.7em;
+		letter-spacing: 3px;
+		position: absolute;
+		top: 50%;
+		margin-top: -40px;
+		width: 100%;
+		text-align: center;
+		color: #fff;
+
+		&::before {
+			content: 'Loading ';
+		}
+
+		&::after {
+			content: '%';
+		}
+	}
+}

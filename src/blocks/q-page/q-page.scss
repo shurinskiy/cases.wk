@@ -1,0 +1,46 @@
+.q-page {
+	$self: &;
+	margin-bottom: 20px;
+	
+	&__item {
+		margin-bottom: 20px;
+		color: #2b3771;
+	}
+
+	&__question {
+		display: block;
+		box-sizing: border-box;;
+		padding: 20px;
+		border-radius: 10px;
+		background-color: #94d6d0;
+		margin-bottom: 10px;
+	}
+
+	&__answers {
+
+		label {
+			display: flex;
+			align-items: center;
+			margin-bottom: 10px;
+			width: 100%;
+
+			input {
+				display: none;
+
+				&:checked + span {
+					background-color: #cde9d3;
+				}
+			}
+			
+			span {
+				display: block;
+				box-sizing: border-box;;
+				padding: 20px;
+				border-radius: 10px;
+				background-color: #e5e8ef;
+				transition: background-color 0.3s;
+				width: 100%;
+			}
+		}
+	}
+}

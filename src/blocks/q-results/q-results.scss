@@ -1,0 +1,41 @@
+.q-results {
+	$self: &;
+
+	&__item {
+		box-sizing: border-box;
+		margin-bottom: 20px;
+		background-color: #efefef;
+		border-radius: 10px;
+		padding: 20px 20px 10px;
+	}
+
+	&__question {
+		display: block;
+		box-sizing: border-box;;
+		background-color: #94d6d0;
+		margin-bottom: 10px;
+		border-radius: 10px;
+		padding: 20px;
+	}
+	
+	&__answers {
+		
+	}
+	
+	&__answer {
+		display: block;
+		box-sizing: border-box;;
+		margin-bottom: 10px;
+		border-radius: 10px;
+		padding: 20px;
+		background-color: #e5e8ef;
+		
+		&.valid {
+			background-color: #cde9d3;
+		}
+		
+		&.invalid {
+			background-color: #ebdfdf;
+		}
+	}
+}

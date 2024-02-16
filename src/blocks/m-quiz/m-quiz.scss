@@ -1,0 +1,88 @@
+.m-quiz {
+	$self: &;
+	font-family: "Rubik", sans-serif;
+	padding-top: 40px;
+	
+	&__container {
+		
+	}
+	
+	&__inner {
+		background-color: #1F2029;
+	}
+	
+	&__page {
+		
+		@include media('<=sm') {
+			margin-bottom: 40px;
+		}
+	}
+
+	&__results {
+		display: none;
+	}
+
+	&__controls {
+
+	}
+
+	&__buttons {
+		box-sizing: border-box;
+		padding: 0 45px 45px;
+		display: flex;
+		justify-content: flex-end;
+		max-width: 50%;
+		margin-left: auto;
+
+		@include media('<=sm') {
+			padding: 0 30px 45px;
+			max-width: none;
+			justify-content: flex-start;
+		}
+
+		@include media('<=xxs') {
+			display: block;
+		}
+	}
+
+	&__btn {
+		@extend %reset-button;
+		font-family: "Ubuntu", sans-serif;
+		font-size: 14px;
+		line-height: 1.2;
+		font-weight: 700;
+		text-transform: uppercase;
+		padding: 17px;
+		color: #fff;
+		border-radius: 50px;
+		width: 100%;
+		max-width: 200px;
+		border: 1px solid #C5A47E;
+		background-color: #C5A47E;
+		transition: background-color 0.2s;
+		margin: 0 10px;
+		
+		&:disabled {
+			background-color: transparent;
+			border-color: #ACACAC;
+			color: #ACACAC;
+			cursor: default;
+		}
+
+		@include media('<=xxs') {
+			margin: 0 0 20px !important;
+		}
+		
+		&_prev {
+			display: none;
+		}
+
+		&_next {
+
+		}
+		
+		&_submit {
+			display: none;
+		}
+	}
+}

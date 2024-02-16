@@ -1,0 +1,36 @@
+.f-license {
+	$self: &;
+	box-sizing: border-box;
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	padding-top: 40px;
+	margin-bottom: 40px;
+
+	&__container {
+		
+	}
+
+	&__inner {
+		box-sizing: border-box;
+		max-width: 650px;
+		margin: 0 auto;
+		background-color: #26212f;
+		color: #D6D6D6;
+	}
+
+	&__title {
+		background-color: #ff3850;
+		color: #fff;
+		font-family: "OR", sans-serif;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		text-align: center;
+		padding: 24px;
+		line-height: 1.2;
+	}
+
+	&__form {
+
+	}
+}

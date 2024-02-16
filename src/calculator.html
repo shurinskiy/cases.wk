@@ -1,0 +1,82 @@
+@@include("_head.html") 
+@@include("_header.html") 
+
+<section class="c-calc">
+	<div class="c-calc__container">
+		<div class="c-calc__inner" id="c-calc">
+			<div class="c-calc__title">
+				<h4>Геологические изыскания для площадного объекта</h4>
+				<p>Пункты отмеченные синей звездочкой <span>*</span> являются обязательными для заполнения</p>
+			</div>
+			<div class="c-calc__page c-page">
+				<div class="c-page__controls">
+					<div class="c-page__row c-page__row_size">
+						<h5 class="c-page__name">Площадь объекта в кв.м. <span>*</span></h5>
+						<div class="c-page__inputs">
+							<label class="c-page__input-text"><input type="text" name="square" value="150"></label>
+						</div>
+					</div>
+					<div class="c-page__row c-page__row_floor">
+						<h5 class="c-page__name">Этажность и подвал <span>*</span></h5>
+						<div class="c-page__inputs">
+							<label class="c-page__input-text"><input type="text" name="level" value="2"></label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="basement">Подвал</label>
+						</div>
+					</div>
+					<div class="c-page__row c-page__row_seismicity">
+						<h5 class="c-page__name">Сейсмичность (от 6 до 9)</h5>
+						<div class="c-page__inputs">
+							<label class="c-page__input-text"><input type="text" name="seism" value="7"></label>
+						</div>
+					</div>
+					<div class="c-page__row c-page__row_foundation">
+						<h5 class="c-page__name">Фундамент <span>*</span></h5>
+						<div class="c-page__inputs">
+							<label class="c-page__input-cbox"><input type="checkbox" name="piles">Сваи</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="plate">Плита</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="grillage">Ростверк-лента</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="unknown">Не знаю</label>
+						</div>
+					</div>
+					<div class="c-page__row c-page__row_location">
+						<h5 class="c-page__name">Тип локации <span>*</span></h5>
+						<div class="c-page__inputs">
+							<label class="c-page__input-cbox"><input type="checkbox" name="city">Городская застройка</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="rough">Незастроенная территория</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="facility">Промышленный объект</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="onwater">Акватория</label>
+						</div>
+					</div>
+					<div class="c-page__row c-page__row_features">
+						<h5 class="c-page__name">Особенности местности</h5>
+						<div class="c-page__inputs">
+							<label class="c-page__input-cbox"><input type="checkbox" name="highland">Горная</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="marshland">Болотистая</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="forest">Залесенная</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="permafrost">Вечная мерзлота</label>
+						</div>
+					</div>
+					<div class="c-page__row c-page__row_additional">
+						<h5 class="c-page__name">Дополнительные услуги</h5>
+						<div class="c-page__inputs">
+							<label class="c-page__input-cbox"><input type="checkbox" name="reconciliation">Согласование коммуникаций</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="registration">Регистрация в территориальном фонде</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="maintenance">Сопровождение при прохождении ГГЭ</label>
+							<label class="c-page__input-cbox"><input type="checkbox" name="secure">Режимный объект</label>
+						</div>
+					</div>
+				</div>
+				<div class="c-page__result">
+					<div class="c-page__result-current">1 000 000</div>
+					<div class="c-page__result-total">Итог: <span>7 000 000</span></div>
+				</div>
+			</div>
+			<div class="c-calc__controls">
+				<button class="c-calc__btn c-calc__btn_prev">Назад</button>
+				<button class="c-calc__btn c-calc__btn_next">Далее</button>
+			</div>
+		</div>
+	</div>
+</section>
+
+@@include("_bottom.html")

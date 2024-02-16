@@ -1,0 +1,270 @@
+.f-form {
+	$self: &;
+	box-sizing: border-box;
+	padding: 50px 50px 40px;
+	
+	@include media('<=xxs') {
+		padding: 50px 30px 40px;
+	}
+
+	@include media('<=xxxs') {
+		padding: 50px 20px 40px;
+	}
+	
+	&__container {
+		
+	}
+
+	&__set {
+		margin-bottom: 15px;
+	}
+
+	&__title {
+		font-size: 19px;
+		line-height: 1.1;
+		color: #D6D6D6;
+		margin-bottom: 15px;
+	}
+
+	&__input {
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		min-width: 0;
+		appearance: none;
+		margin-bottom: 10px;
+		outline: none;
+		border: none;
+		color: #D6D6D6;
+		padding: 15px;
+		font-size: 16px;
+		line-height: 1.3;
+		background-color: #322d3c;
+
+		&::placeholder {
+			color: #A4A4A4;
+		}
+
+		&.datepicker-here {
+			padding-right: 50px;
+			background: url('#{$images-path}raf/ic-calendar.svg') center right 20px / 20px 20px no-repeat #322d3c;
+		}
+	}
+
+	&__select.select {
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		min-width: 0;
+		appearance: none;
+		margin-bottom: 10px;
+		outline: none;
+		border: none;
+		color: #D6D6D6;
+		font-size: 16px;
+		line-height: 1.3;
+		position: relative;
+		cursor: pointer;
+		
+		&.select_opened {
+
+			.select__list {
+				display: block;
+			}
+			
+			.select__head::before {
+				transform: rotate(180deg);
+			}
+		}
+		
+		.select__head {
+			padding: 15px 50px 15px 15px;
+			position: relative;
+			background-color: #322d3c;
+			
+			&::before {
+				display: block;
+				content: '';
+				width: 18px;
+				height: 10px;
+				background: url('./images/raf/ic-arr_down.svg') center / auto no-repeat transparent;
+				position: absolute;
+				right: 20px;
+				top: calc(50% - 5px);
+			}
+		}
+		
+		.select__list {
+			display: none;
+			position: absolute;
+			left: 0;
+			top: 100%;
+			width: 100%;
+			border-top: 10px solid #26212f;
+			background-color: #322d3c;
+			@keyframes list_fade {
+				0% {opacity: 0;}
+				100% {opacity: 1;}
+			}
+			animation: list_fade 0.4s ease;
+		}
+		
+		.select__item {
+			padding: 15px;
+			transition: background-color 0.3s;
+			
+			&:hover {
+				background-color: #433d4e;
+			}
+		}
+	}
+
+	&__checkbox {
+		display: flex;
+		align-items: center;
+		margin-bottom: 10px;
+		cursor: pointer;
+		
+		input {
+			flex-shrink: 0;
+			margin-right: 10px;
+			appearance: none;
+			overflow: hidden;
+			border: none;
+			background-color: #fff;
+			width: 18px;
+			height: 18px;
+			border-radius: 3px;
+			cursor: pointer;
+			outline: none;
+			
+			&:checked {
+				background-color: #007bb7;
+				&::before {
+					display: block;
+					content: '';
+					width: 18px;
+					height: 18px;
+					background: url('#{$images-path}raf/ic-check.svg') center / 14px 10px no-repeat transparent;
+				}
+			}
+		}
+
+		a { color: #D6D6D6; }
+
+		&_toggle { margin-bottom: 20px; }
+	}
+
+	&__button {
+		display: block;
+		box-sizing: border-box;
+		text-align: center;
+		text-decoration: none;
+		appearance: none;
+		background: none;
+		box-shadow: none;
+		cursor: pointer;
+		color: #fff;
+		line-height: 1.1;
+		min-width: 0;
+		outline: none;
+		border: none;
+		width: 100%;
+		max-width: 360px;
+		background-color: #ff3850;
+		font-family: "OR", sans-serif;
+		letter-spacing: 0.05em;
+		line-height: 1.2;
+		padding: 15px;
+		margin: 0 auto 10px;
+
+		input[type="file"] {
+			display: none;
+		}
+	}
+
+	&__citizenship {
+		@keyframes citizenship_fade {
+			0% {opacity: 0;}
+			100% {opacity: 1;}
+		}
+		animation: citizenship_fade 0.4s ease;
+
+		> p {
+			text-align: center;
+			margin-bottom: 19px;
+		}
+		
+		&_hidden {
+			display: none;
+			justify-content: space-between;
+			
+			&[style*="display: block"] {
+				display: flex !important; // для jquery
+			}
+		}
+	}
+
+	&__docs {
+		margin-bottom: 20px;
+	}
+
+	&__docs-block {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__docs-info {
+		display: flex;
+		align-items: center;
+		max-width: 350px;
+		padding-right: 10px;
+	}
+
+	&__hint {
+		display: block;
+		border-radius: 50%;
+		background-color: #007bb7;
+		margin-left: 8px;
+		text-align: center;
+		text-decoration: none;
+		color: #26212f;
+		
+		&::before {
+			display: block;
+			width: 15px;
+			height: 15px;
+			content: 'i';
+			font-size: 10px;
+			font-weight: bold;
+			font-family: "Arial", sans-serif;
+			line-height: 15px;
+		}
+	}
+
+	&__file {
+		cursor: pointer;
+		color: #007bb7;
+		text-decoration: underline;
+		display: flex;
+		align-items: center;
+
+		input[type="file"] {
+			display: none;
+		}
+
+		&_selected {
+			text-decoration: none;
+
+			&::before {
+				box-sizing: border-box;
+				display: block;
+				content: '';
+				width: 16px;
+				height: 14px;
+				background: url('#{$images-path}raf/ic-image.svg') center / auto no-repeat transparent;
+				margin-right: 10px;
+			}
+		}
+	}
+}

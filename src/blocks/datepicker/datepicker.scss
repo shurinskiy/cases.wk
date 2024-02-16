@@ -1,0 +1,62 @@
+.datepicker {
+	$self: &;
+	background-color: #26212f;
+	border: 1px solid #46434b;
+	box-shadow: 0px 0px 18px rgba(0, 0, 0, 0.65);
+	color: #D6D6D6;
+
+	&--cell {
+
+		&.-selected- {
+			background-color: #4b4558;
+			
+			&.-focus- {
+				background-color: #61557a;
+			}	
+			
+			&.-current- {
+				background-color: #4b4558;
+				color: #1aa2e6;
+			}
+		}
+
+		&.-focus- {
+			background-color: #312a41;
+		}
+
+		&.-current- {
+			color: #007bb7;
+
+			&:hover {
+				color: #1aa2e6;
+			}
+		}
+	}
+
+	&--nav-title {
+		&:hover {
+			background-color: #312a41;
+		}
+	}
+
+	&--nav-action {
+		&:hover {
+			background-color: #312a41;
+		}
+	}
+
+	&--day-name {
+		color: #ff3850;
+	}
+
+	&--nav {
+		border-bottom: 1px solid #46434b;
+	}
+
+	&--pointer {
+		background-color: #26212f;
+		border: 1px solid #46434b;
+		border-bottom: none;
+		border-left: none;
+	}
+}

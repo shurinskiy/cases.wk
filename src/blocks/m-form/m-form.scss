@@ -1,0 +1,235 @@
+.m-form {
+	$self: &;
+	display: flex;
+	flex-flow: row wrap;
+
+	&__fields {
+		box-sizing: border-box;
+		width: 50%;
+		padding-right: 20px;
+		display: flex;
+		flex-flow: column nowrap;
+		
+		@include media('<=sm') {
+			width: 100%;
+			margin-bottom: 40px;
+		}
+	}
+
+	&__field {
+		font-family: "Ubuntu", sans-serif;
+		font-weight: 300;
+		font-size: 16px;
+		line-height: 1.2;
+		padding: 0;
+		border: none;
+		border-bottom: 2px solid #5c4f43;
+		margin: 0 0 20px;
+		position: relative;
+
+		input {
+			@extend %reset-input;
+			display: block;
+			width: 100%;
+			padding: 7px 0;
+			color: #fff;
+			position: relative;
+			z-index: 2;
+
+			&:focus + span,
+			&:valid + span,
+			&:disabled + span {
+				display: none;
+			}
+		}
+
+		span {
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			top: 50%;
+			transform: translateY(-50%);
+			display: block;
+			color: #fff;
+			user-select: none;
+
+			&::after {
+				display: inline-block;
+				content: "*";
+				margin-left: 3px;
+				color: #d0011b;
+			}
+		}
+
+		&::placeholder {
+			color: transparent;
+		}
+	}
+
+	&__field-comment {
+		@extend %reset-input;
+		display: block;
+		width: 100%;
+		padding: 7px 0;
+		color: #fff;
+		font-family: "Ubuntu", sans-serif;
+		font-weight: 300;
+		line-height: 1.2;
+		font-size: 16px;
+		border-bottom: 2px solid #5c4f43;
+		margin: auto 0 -80px;
+
+		&::placeholder {
+			color: #fff;
+		}
+
+		&:focus::placeholder {
+			color: transparent;
+		}
+		
+		@include media('<=sm') {
+			margin: auto 0 0;
+		}
+	}
+
+	&__side {
+		box-sizing: border-box;
+		width: 50%;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: flex-end;
+		
+		@include media('<=sm') {
+			align-items: flex-start;
+			width: 100%;
+		}
+	}
+
+	&__file {
+		box-sizing: border-box;
+		cursor: pointer;
+		font-size: 20px;
+		line-height: 1.1;
+		margin-bottom: 40px;
+		text-align: right;
+		
+		&::before {
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 6px;
+			content: '';
+			width: 14px;
+			height: 25px;
+			background: url('./images/pskgeo/m-form-file.png') center left / auto no-repeat transparent;
+		}
+
+		input {
+			display: none;
+		}
+		
+		@include media('<=sm') {
+			text-align: left;
+		}
+	}
+
+	&__how-get {
+		text-transform: uppercase;
+		font-family: "Ubuntu", sans-serif;
+		font-weight: 400;
+		line-height: 1.6;
+		font-size: 16px;
+		max-width: 240px;
+		color: #acacac;
+		text-align: right;
+		margin-bottom: 30px;
+		
+		span {
+			display: block;
+			color: #fff;
+		}
+		
+		@include media('<=sm') {
+			text-align: left;
+		}
+	}
+
+	&__socials {
+		display: flex;
+		margin: 0 -6px 30px;
+	}
+
+	&__get {
+		margin: 0 6px;
+
+		input {
+			@extend %reset-input;
+			margin: 0px 20px 0 0;
+			display: block;
+			width: 22px;
+			height: 22px;
+			flex-shrink: 0;
+			border-radius: 3px;
+			border: 1px solid #C5A47E;
+			cursor: pointer;
+			margin: 0 auto;
+	
+			&:checked {
+				background: svg-url('<svg width="18" height="14" viewBox="0 0 18 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.74707 5.74799L7.52805 11.124L14.1701 3.81796L16.5601 1.18896" stroke="#C5A47E" stroke-width="3"/></svg>') center / 19px 14px no-repeat transparent;
+			}
+		}
+	}
+
+	&__get-image {
+		height: 48px;
+		width: 48px;
+		background-color: #fff;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 0 auto 20px;
+	}
+
+	&__agree {
+		font-family: "Ubuntu", sans-serif;
+		color: #acacac;
+		font-size: 14px;
+		max-width: 350px;
+		text-align: right;
+		margin-left: auto;
+		
+		@include media('<=sm') {
+			margin: 0;
+			text-align: left;
+		}
+	}
+
+	&__submit {
+		display: none;
+	}
+
+	&__echo {
+		font-size: 20px;
+		font-weight: 300;
+		
+		@include media('<=sm') {
+			font-size: 18px;
+		}
+		
+		@include media('<=xs') {
+			font-size: 17px;
+		}
+		
+		@include media('<=xxs') {
+			font-size: 16px;
+		}
+		
+		&_error {
+			color: #ffb6b6;
+		}
+		
+		&_success {
+			color: #b6ffc6;
+		}
+	}
+}

@@ -1,0 +1,15 @@
+.m-results {
+	$self: &;
+	box-sizing: border-box;
+	color: #fff;
+	padding: 90px 45px 45px;
+	min-height: 470px;
+	
+	@include media('<=sm') {
+		padding: 90px 30px 45px;
+	}
+
+	&__data {
+		display: none;
+	}
+}

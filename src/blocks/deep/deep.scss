@@ -1,0 +1,24 @@
+.deep {
+	$self: &;
+	// padding: 500px 0;
+	
+	&__items-wrapper {
+		height: 4300px;
+	}
+		
+	&__items {
+		box-sizing: border-box;
+		overflow: hidden;
+		height: 100vh;
+	}
+	
+	&__item {
+		box-sizing: border-box;
+		position: absolute;
+		line-height: 1.75;
+		height: 100%;
+		width: 100%;
+		will-change: transform;
+		transform-style: preserve-3d;
+	}
+}

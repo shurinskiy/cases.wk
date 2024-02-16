@@ -1,0 +1,101 @@
+@import "lib/additional.scss"; 
+@include reset(); 
+
+body { @include screen-media(); }
+
+@import "../../node_modules/include-media/dist/_include-media.scss";
+
+$breakpoints: (
+	'xxxs': 360px,
+	'xxs': 480px,
+	'xs': 640px,
+	'sm': 780px,
+	'md': 960px,
+	'lg': 1100px,
+	'xlg': 1280px,
+	'xxlg': 1440px,
+	'xxxlg': 1680px,
+	'xxxxlg': 1920px
+);
+
+// Import animate-scss
+@import
+	"../../node_modules/animate-scss/_properties.scss",
+	// "../../node_modules/animate-scss/_attention-seekers/attention-seekers.scss",
+	// "../../node_modules/animate-scss/_bouncing-entrances/bouncing-entrances.scss",
+	// "../../node_modules/animate-scss/_bouncing-exits/bouncing-exits.scss",
+	// "../../node_modules/animate-scss/_fading-entrances/fading-entrances.scss",
+	// "../../node_modules/animate-scss/_fading-exits/fading-exits.scss",
+	// "../../node_modules/animate-scss/_flippers/flippers.scss",
+	// "../../node_modules/animate-scss/_lightspeed/lightspeed.scss",
+	// "../../node_modules/animate-scss/_rotating-entrances/rotating-entrances.scss",
+	// "../../node_modules/animate-scss/_rotating-exits/rotating-exits.scss",
+	"../../node_modules/animate-scss/_sliding-entrances/sliding-entrances.scss",
+	// "../../node_modules/animate-scss/_sliding-exits/sliding-exits.scss",
+	"../../node_modules/animate-scss/_specials/specials.scss";
+	// "../../node_modules/animate-scss/_zooming-exits/zooming-exits.scss",
+	// "../../node_modules/animate-scss/_zooming-entrances/zooming-entrances.scss";
+
+
+@include font-face("Segoe-UI", "SR");
+@include font-face("Segoe-UI-SemiLight", "SSL");
+@include font-face("Segoe-UI-SemiBold", "SSB");
+@include font-face("Segoe-UI-Bold", "SB");
+@include font-face("Oswald-Regular", "OR");
+@include font-face("Raleway-Light", "RWL");
+@include font-face("Raleway-Thin", "RWT");
+
+
+@import "../../node_modules/swiper/swiper";
+@import "../../node_modules/air-datepicker/dist/css/datepicker";
+
+@import "../blocks/**/*.scss";
+// @import "../blocks/m-form/m-form";
+// @import "../blocks/m-quiz/m-quiz";
+// @import "../blocks/m-page/m-page";
+// @import "../blocks/m-results/m-results";
+
+body, html {
+	box-sizing: border-box;
+	font-size: #{$basesize}px;
+	line-height: 1.4;
+	font-family: "SR", sans-serif;
+	background-color: #fafafa;
+	min-height: 100vh;
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+body {
+	&.form-bg {
+		background-color: #322d3c;
+	}
+
+	&.deep-bg {
+		overflow-x: hidden;
+		background-color: #0f0f0f;
+	}
+
+	&.preloading {
+		overflow: hidden;
+	}
+}
+
+.footer { 
+	flex: 0 0 auto; 
+	margin-top: auto; 
+}
+
+[class*="__container"] {
+	box-sizing: border-box;
+	max-width: 1400px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 20px;
+	padding-right: 20px;
+	width: 100%;
+}
+
+p { margin-bottom: 10px; }
+strong { font-weight: bold; }
+em { font-style: italic; }

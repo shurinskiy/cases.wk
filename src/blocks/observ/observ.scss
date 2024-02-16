@@ -1,0 +1,59 @@
+.observ {
+	$self: &;
+	padding-top: 40px;
+	
+	&__container {
+
+	}
+
+	&__inner {
+		display: flex;
+		padding-top: 40px;
+	}
+
+	&__content {
+		flex-grow: 1;
+	}
+
+	&__section {
+		padding: 50px 20px 100px;
+		margin: -50px 0 100px;
+		min-height: 70vh;
+		background-color: #fffdda;
+		border: 1px solid #ffe600;
+		border-radius: 5px;
+	
+		h2 { font-weight: bold; }
+	}
+
+	&__side {
+		box-sizing: border-box;
+		width: 350px;
+		flex-shrink: 0;
+		order: 1;
+		padding-left: 40px;
+		position: relative;
+
+		ul {
+			position: sticky;
+			top: 50px;
+
+			li {
+				margin-bottom: 7px;
+				
+				&.active a {
+					border-color: #ccc;
+				}
+
+				a {
+					display: block;
+					padding: 7px 0 7px 15px;
+					font-weight: bold;
+					color: #000;
+					text-decoration: none;
+					border-left: 5px solid transparent;
+				}
+			}
+		}
+	}
+}
