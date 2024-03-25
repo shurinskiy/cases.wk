@@ -22,7 +22,7 @@
 			}
 	
 			current() {
-				const diff = this.rest - new Date(),
+				const diff = this.rest - new Date().getTime(),
 					day = Math.floor(diff / (1000 * 60 * 60 * 24)),
 					hur = Math.floor((diff / (1000 * 60 * 60)) % 24),
 					min = Math.floor((diff / 1000 / 60) % 60),
