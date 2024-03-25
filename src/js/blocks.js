@@ -20,3 +20,5 @@ import "../blocks/preloader/preloader.js";
 import "../blocks/deep/deep.js";
 import "../blocks/header/header.js";
 import "../blocks/masonry/masonry.js";
+import "../blocks/timer/timer.js";
+import "../blocks/b-timer/b-timer.js";

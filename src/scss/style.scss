@@ -55,9 +55,20 @@ $breakpoints: (
 // @import "../blocks/m-page/m-page";
 // @import "../blocks/m-results/m-results";
 
+:root {
+	--size: #{$basesize}px;
+	--container: 1240px;
+	--gap: 24px;
+	
+	@include media('<=xs') {
+		--gap: 16px;
+	}
+}
+
+
 body, html {
 	box-sizing: border-box;
-	font-size: #{$basesize}px;
+	font-size: var(--size);
 	line-height: 1.4;
 	font-family: "SR", sans-serif;
 	background-color: #fafafa;

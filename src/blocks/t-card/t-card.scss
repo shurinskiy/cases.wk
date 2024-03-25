@@ -1,0 +1,107 @@
+.t-card {
+	$self: &;
+	position: relative;
+	width: 140px;
+	height: 200px;
+	box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+	border-radius: 7px;
+	overflow: hidden;
+	color: #212121;
+
+	&::before, &::after {
+		position: absolute;
+		z-index: 0;
+		display: flex;
+		box-sizing: border-box;
+		justify-content: center;
+		width: 100%;
+		height: 50%;
+		overflow: hidden;
+		background: white;
+	}
+	
+	&::before {
+		content: attr(data-digit-before);
+		align-items: flex-end;
+		top: 0;
+	}
+	
+	&::after {
+		content: attr(data-digit-after);
+		align-items: flex-start;
+		bottom: 0;
+	}
+
+	&__digit {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		height: 50%;
+		transform: rotateX(0);
+		transform-origin: bottom;
+		transform-style: preserve-3d;
+		transition: transform 0.7s ease-in;
+
+		/* &::before, &::after {
+			position: absolute;
+			display: flex;
+			box-sizing: border-box;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			backface-visibility: hidden;
+			background-color: #fff;
+		}
+
+		&::before {
+			content: attr(data-digit-before);
+			border-radius: 7px 7px 0 0;
+			align-items: flex-end;
+		}
+
+		&::after {
+			content: attr(data-digit-after);
+			transform: rotateX(-180deg);
+			align-items: flex-start;
+		} */
+		
+		&.flipped {
+			transform: rotateX(-180deg);
+			
+			#{$self}__face_front {
+				background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.02) 100%), #fff;
+			}
+			
+			#{$self}__face_back {
+				background: linear-gradient(0deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.02) 100%), #fff;
+			}
+		}
+	}
+
+	&__face {
+		position: absolute;
+		display: flex;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		overflow: hidden;
+		backface-visibility: hidden;
+		
+		&_front, &_back {
+			box-sizing: border-box;
+			background: white;
+		}
+		
+		&_front {
+			border-radius: 7px 7px 0 0;
+			align-items: flex-end;
+		}
+
+		&_back {
+			transform: rotateX(-180deg);
+			align-items: flex-start;
+		}
+	}
+}

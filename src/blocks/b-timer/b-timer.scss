@@ -1,0 +1,16 @@
+.b-timer {
+	$self: &;
+	flex-grow: 1;
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+
+	/* button {
+		margin-top: 50px;
+	} */
+
+	&__inner {
+		max-width: 1000px !important;
+	}
+}
