@@ -9,24 +9,26 @@
 					types: 'd,h,m,s',
 					effectClass: 'flipped',
 					digitWrapper: false,
-					date: 14 * 24 * 60 * 60 * 1000,
+					date: 'Apr 5, 2024 15:37:25',
 					...options
 				}
 	
 				this.$shell = element;
-				this.rest = new Date(Date.parse(new Date()) + this.options.date);
+				this.rest = new Date(this.options.date).getTime();
 				this.types = this.options.types.split(',');
+				this.diff = this.rest - new Date();
 				this.interval = null;
 				this.digits = {};
 				this.init();
 			}
 	
 			current() {
-				const diff = this.rest - new Date().getTime(),
-					day = Math.floor(diff / (1000 * 60 * 60 * 24)),
-					hur = Math.floor((diff / (1000 * 60 * 60)) % 24),
-					min = Math.floor((diff / 1000 / 60) % 60),
-					sec = Math.floor((diff / 1000) % 60);
+				this.diff = this.rest - new Date();
+				
+				const day = Math.floor(this.diff / (1000 * 60 * 60 * 24)),
+					hur = Math.floor((this.diff / (1000 * 60 * 60)) % 24),
+					min = Math.floor((this.diff / 1000 / 60) % 60),
+					sec = Math.floor((this.diff / 1000) % 60);
 	
 				const values = { 
 					d: { curr: day, next: (day == 0) ? 0 : day - 1 },
@@ -36,11 +38,18 @@
 				};
 	
 				for (const val in values) {
-					values[val].curr = ("0" + values[val].curr).slice(-2);
-					values[val].next = ("0" + values[val].next).slice(-2);
+					values[val].curr = (this.diff <= 0) ? "00" : ("0" + values[val].curr).slice(-2);
+					values[val].next = (this.diff <= 0) ? "00" : ("0" + values[val].next).slice(-2);
+				}
+
+				if(this.diff <= 0) {
+					this.interval = clearInterval(this.interval);
+
+					if (typeof this.options.finished === 'function')
+						this.options.finished.call(this.$shell);
 				}
 	
-				return { diff, ...values };
+				return {...values };
 			}
 	
 			update() {
@@ -53,7 +62,7 @@
 					const data = card.dataset;
 					let timer;
 					
-					if(! data.timeBefore) {
+					if (! data.timeBefore || this.diff <= 0) {
 						data.timeBefore = value.next;
 						data.timeAfter = value.curr;
 					} else if (data.timeBefore !== value.next) {
@@ -63,14 +72,14 @@
 							card.classList.remove(this.options.effectClass);
 							data.timeBefore = value.next;
 							data.timeAfter = value.curr;
-							timer = null;
+							clearTimeout(timer);
 						}, parseFloat(before.transitionDuration) * 1000);
 					}
 				}
 			}
 	
 			init() {
-				if(! this.$shell.classList.contains(this.options.class))
+				if (! this.$shell.classList.contains(this.options.class))
 					this.$shell.classList.add(this.options.class);
 	
 				this.types.map(type => {
@@ -90,7 +99,9 @@
 				});
 	
 				this.update();
-				this.interval = setInterval(this.update.bind(this), 1000);
+
+				if (this.diff > 0)
+					this.interval = setInterval(this.update.bind(this), 1000);
 			}
 		}
 
@@ -99,8 +110,11 @@
 
 	countdownTimer(document.querySelector('.b-timer__inner'), { 
 		class: 'b-clock',
-		date: 5 * 24 * 60 * 60 * 1000,
-		digitWrapper: true
+		date: 'Mar 25, 2024 20:32:00',
+		digitWrapper: true,
+		finished: function() {
+			console.log(this);
+		}
 	});
 
 })();
