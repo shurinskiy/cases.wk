@@ -14,7 +14,8 @@
 				}
 	
 				this.$shell = element;
-				this.rest = new Date(this.options.date).getTime();
+				this.date = this.$shell.dataset.date || this.options.date;
+				this.rest = new Date(this.date).getTime();
 				this.types = this.options.types.split(',');
 				this.diff = this.rest - new Date();
 				this.interval = null;
@@ -110,7 +111,7 @@
 
 	countdownTimer(document.querySelector('.b-timer__inner'), { 
 		class: 'b-clock',
-		date: 'Mar 25, 2024 20:32:00',
+		// date: 'May 25, 2024 20:32:00',
 		digitWrapper: true,
 		finished: function() {
 			console.log(this);

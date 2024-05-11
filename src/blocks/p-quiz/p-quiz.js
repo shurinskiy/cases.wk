@@ -2,20 +2,19 @@ import DATA from './p-quiz.json';
 
 (() => {
 
-	const $quiz = $('#p-quiz');
-	const $page = $quiz.find('.p-page');
-	const $results = $quiz.find('.p-results');
-	const $progress = $quiz.find('.p-quiz__progress');
-	const $restart = $quiz.find('.p-quiz__btn_restart');
-	const $next = $quiz.find('.p-quiz__btn_next');
+	const $quiz = document.querySelector('#p-quiz');
+	if (!$quiz) return;
+
+	const $page = $quiz.querySelector('.p-page');
+	const $results = $quiz.querySelector('.p-results');
+	const $progress = $quiz.querySelector('.p-quiz__progress');
+	const $restart = $quiz.querySelector('.p-quiz__btn_restart');
+	const $next = $quiz.querySelector('.p-quiz__btn_next');
 	let results = {};
-
-	if (!$quiz.length) return;
-
 
 	// отрисовка блока вопросов
 	const renderPage = (index) => {
-		$quiz.data('step', index);
+		$quiz.dataset.step = index;
 
 		const renderAnswers = () => DATA[index].answers
 			.map((answer, id) =>
@@ -25,12 +24,11 @@ import DATA from './p-quiz.json';
 				</label>`
 			).join('');
 
-		$page.html(`
-			<div class="p-page__item">
+		$page.innerHTML = 
+			`<div class="p-page__item">
 				<h4 class="p-page__question">${DATA[index].question}</h4>
 				<div class="p-page__answers">${renderAnswers()}</div>				
-			</div>
-		`);
+			</div>`;
 	};
 
 
@@ -64,49 +62,52 @@ import DATA from './p-quiz.json';
 				</div>`;
 		});
 
-		$results.html(content).show();
+		$results.insertAdjacentHTML('afterbegin', content);
+		$results.style.display = 'block';
 	};
 
 
 	// обработчик выбора ответа
-	$quiz.on('change', '.p-page__answers input', function(e) {
-		results[e.target.name] = e.target.value;
-		$progress.find('span').css({ width: (($quiz.data('step') + 1) / DATA.length * 100) + '%' });
-		$next.prop('disabled', false);
-	});
+	$quiz.addEventListener('change', (e) => {
+		if (e.target.closest('.p-page__answers input')) {
+			results[e.target.name] = e.target.value;
 
+			Object.assign($progress.querySelector('span').style, { 
+				width: ((+$quiz.dataset.step + 1) / DATA.length * 100) + '%' 
+			});
 
-	// обработчик кнопки "далее"
-	$quiz.on('click', '.p-quiz__btn_next', function(e) {
-		const nextStep = $quiz.data('step') + 1;
-		
-		if (DATA.length <= nextStep) {
-			$page.hide();
-			$next.hide();
-			$progress.hide();
-			$restart.show();
-			renderResults();			
-		} else {
-			renderPage(nextStep);
+			$next.removeAttribute('disabled');
 		}
-		
-		$next.prop('disabled', true);
 	});
 
-	
-	// обработчик кнопки "рестарт"
-	$quiz.on('click', '.p-quiz__btn_restart', function(e) {
-		results = {};
-		$results
-			.html('')
-			.add($page)
-			.add($next)
-			.add($restart)
-			.add($progress)
-			.add($progress.find('span'))
-			.removeAttr('style')
 
-		renderPage(0);
+	$quiz.addEventListener('click', (e) => {
+		// обработчик кнопки "далее"
+		if (e.target.closest('.p-quiz__btn_next')) {
+			const nextStep = +$quiz.dataset.step + 1;
+			
+			if (DATA.length <= nextStep) {
+				$page.style.display = 'none';
+				$next.style.display = 'none';
+				$progress.style.display = 'none';
+				$restart.style.display = 'block';
+				renderResults();
+			} else {
+				renderPage(nextStep);
+			}
+			
+			$next.setAttribute('disabled', '');
+		}
+		// обработчик кнопки "рестарт"
+		if (e.target.closest('.p-quiz__btn_restart')) {
+			let elements = [$results, $page, $progress, $next, $restart, $progress.querySelector('span')];
+
+			elements.map(item => item.removeAttribute('style'));
+			$results.innerHTML = '';
+			results = {};
+
+			renderPage(0);
+		}
 	});
 
 	renderPage(0);
