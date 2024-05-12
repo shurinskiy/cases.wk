@@ -2,57 +2,70 @@ import DATA from './q-quiz.json';
 
 (() => {
 
-	const $quiz = $('#q-quiz');
-	const $page = $quiz.find('.q-page');
-	const $results = $quiz.find('.q-results');
-	const $restart = $quiz.find('.q-quiz__btn_restart');
-	const $next = $quiz.find('.q-quiz__btn_next');
-	const $prev = $quiz.find('.q-quiz__btn_prev');
+	const $quiz = document.querySelector('#q-quiz');
+	if (!$quiz) return;
+
+	const $nodes = {
+		page: $quiz.querySelector('.q-page'),
+		results: $quiz.querySelector('.q-results'),
+		progress: $quiz.querySelector('.q-quiz__progress'),
+		restart: $quiz.querySelector('.q-quiz__btn_restart'),
+		next: $quiz.querySelector('.q-quiz__btn_next'),
+		prev: $quiz.querySelector('.q-quiz__btn_prev')
+	}
+
 	let results = {};
 
-	if (!$quiz.length) return;
 
+	// расчет прогресса
+	const countProgress = (results) => {
+		let count = Object.values(results).reduce((cnt, res) => cnt + !!res.length, 0);
+		return (count / DATA.length * 100) + '%';
+	}
 
+	
 	// отрисовка текущего блока вопросов
 	const renderPage = (index) => {
-		$quiz.data('step', index);
+		$quiz.dataset.step = index;
+		Object.values($nodes).map(node => node.removeAttribute('style'));
+		
+		// определение состояния инпута из объекта с результатами
+		const getChecked = (id) => results[index]?.includes(id) ? 'checked' : '';
+		// радиокнопка или чекбокс
+		const type = DATA[index].radio ? 'radio':'checkbox';
 		
 		// отрисовка
-		const getChecked = (id) => results[index]?.includes(id) ? 'checked' : '';
-
 		const renderAnswers = () => DATA[index].answers
 			.map((answer, id) =>
 				`<label>
-					<input type="checkbox" name="${index}" value="${id}" ${getChecked(id)}>
+					<input type="${type}" name="${index}" value="${id}" ${getChecked(id)}>
 					<span>${answer}</span>
 				</label>`
 			).join('');
 
-		$page.html(`
-			<div class="q-page__item">
+		$nodes.page.innerHTML = 
+			`<div class="q-page__item">
 				<h4 class="q-page__question">${DATA[index].question}</h4>
 				<div class="q-page__answers">${renderAnswers()}</div>				
-			</div>
-		`);
+			</div>`;
 
-		// сброс элементов
-		$next
-			.prop('disabled', Boolean(!results[index] || !results[index].length))
-			.add($page)
-			.add($results)
-			.add($next)
-			.add($restart)
-			.removeAttr('style');
+		// переключить состояние кнопки "далее"
+		$nodes.next.style.display = 'block';
+		$nodes.next.toggleAttribute('disabled', Boolean(!results[index] || !results[index].length));
 		
-		// убрать кнопку "назад" на первой страничке
-		if (!index) $prev.removeAttr('style');
-
+		// показать полосу прогресса
+		$nodes.progress.style.display = 'block';
+		
+		// не показывать кнопку "назад" на первой страничке
+		if (index) $nodes.prev.style.display = 'block';
 	};
 
 
 	// отрисовка блока результатов
 	const processingResults = () => {
-		$quiz.data('step', DATA.length);
+		$quiz.dataset.step = DATA.length;
+		Object.values($nodes).map(node => node.removeAttribute('style'));
+		
 		let content = '';
 
 		// отрисовка
@@ -68,67 +81,64 @@ import DATA from './q-quiz.json';
 				</div>`;
 		});
 
-		// переключение видимости элементов
-		$results
-			.html(content)
-			.add($page.html(''))
-			.add($next)
-			.add($restart)
-			.toggle();
+		// показать соответствующие элементы
+		$nodes.page.innerHTML = '';
+		$nodes.results.innerHTML = content;
+		$nodes.results.style.display = 'block';
+		$nodes.restart.style.display = 'block';
+		$nodes.prev.style.display = 'block';
 	};
 
 
 	// обработчик выбора ответа
-	$quiz.on('change', 'input', function(e) {
-		results[e.target.name] = [];
-
-		$(this)
-			.parents('.q-page__answers')
-			.find('input[type=checkbox]:checked')
-			.each(function(index, el){
-				results[e.target.name].push(Number(el.value));
+	$quiz.addEventListener('change', function(e) {
+		results[this.dataset.step] = [];
+		
+		if (e.target.closest('input')) {
+			this.querySelectorAll('.q-page__answers input:checked').forEach(input => {
+				results[this.dataset.step].push(Number(input.value));
 			});
 
-		$next.prop('disabled', Boolean(!results[e.target.name].length));
-	});
-
-
-	// обработчик кнопки "далее"
-	$quiz.on('click', '.q-quiz__btn_next', function(e) {
-		const nextStep = $quiz.data('step') + 1;
-
-		if (DATA.length <= nextStep) {
-			processingResults();			
-		} else {
-			$prev.show();
-			renderPage(nextStep);
+			Object.assign($nodes.progress.querySelector('span').style, { 
+				width: countProgress(results)
+			});
+		
+			$nodes.next.toggleAttribute('disabled', Boolean(!results[this.dataset.step].length));
 		}
 	});
 
 
-	// обработчик кнопки "назад"
-	$quiz.on('click', '.q-quiz__btn_prev', function(e) {
-		let prevStep = $quiz.data('step') - 1;
-		if (prevStep < 0) return;
+	// обработчик кнопок
+	$quiz.addEventListener('click', function(e) {
+		
+		// кнопка "далее"
+		if (e.target.closest('.q-quiz__btn_next')) {
+			const nextStep = +this.dataset.step + 1;
 
-		renderPage(prevStep);
-	});
+			if (DATA.length <= nextStep) {
+				processingResults();
+			} else {
+				$nodes.prev.style.display = 'block';
+				renderPage(nextStep);
+			}
+		}
 
+		// кнопка "назад"
+		if (e.target.closest('.q-quiz__btn_prev')) {
+			let prevStep = this.dataset.step - 1;
+			if (prevStep < 0) return;
 	
-	// обработчик кнопки "рестарт"
-	$quiz.on('click', '.q-quiz__btn_restart', function(e) {
-		results = {};
-		$results
-			.html('')
-			.add($page)
-			.add($next)
-			.add($prev)
-			.add($restart)
-			.removeAttr('style');
+			renderPage(prevStep);
+		}
 
-		renderPage(0);
+		// кнопка "рестарт"
+		if (e.target.closest('.q-quiz__btn_restart')) {
+			results = {};
+
+			renderPage(0);
+		}
 	});
 
-	// самый первый вызов
+	// самый первый вызов рендера
 	renderPage(0);
 })();

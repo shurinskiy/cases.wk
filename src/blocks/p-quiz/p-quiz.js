@@ -5,12 +5,17 @@ import DATA from './p-quiz.json';
 	const $quiz = document.querySelector('#p-quiz');
 	if (!$quiz) return;
 
-	const $page = $quiz.querySelector('.p-page');
-	const $results = $quiz.querySelector('.p-results');
-	const $progress = $quiz.querySelector('.p-quiz__progress');
-	const $restart = $quiz.querySelector('.p-quiz__btn_restart');
-	const $next = $quiz.querySelector('.p-quiz__btn_next');
+	const $nodes = {
+		page: $quiz.querySelector('.p-page'),
+		results: $quiz.querySelector('.p-results'),
+		progress: $quiz.querySelector('.p-quiz__progress'),
+		state:  $quiz.querySelector('.p-quiz__progress span'),
+		restart: $quiz.querySelector('.p-quiz__btn_restart'),
+		next: $quiz.querySelector('.p-quiz__btn_next')
+	}
+
 	let results = {};
+
 
 	// отрисовка блока вопросов
 	const renderPage = (index) => {
@@ -24,7 +29,7 @@ import DATA from './p-quiz.json';
 				</label>`
 			).join('');
 
-		$page.innerHTML = 
+		$nodes.page.innerHTML = 
 			`<div class="p-page__item">
 				<h4 class="p-page__question">${DATA[index].question}</h4>
 				<div class="p-page__answers">${renderAnswers()}</div>				
@@ -62,48 +67,44 @@ import DATA from './p-quiz.json';
 				</div>`;
 		});
 
-		$results.insertAdjacentHTML('afterbegin', content);
-		$results.style.display = 'block';
+		$nodes.results.insertAdjacentHTML('afterbegin', content);
+		$nodes.results.style.display = 'block';
+		$nodes.restart.style.display = 'block';
 	};
-
-
+	
+	
 	// обработчик выбора ответа
-	$quiz.addEventListener('change', (e) => {
+	$quiz.addEventListener('change', function(e) {
 		if (e.target.closest('.p-page__answers input')) {
-			results[e.target.name] = e.target.value;
-
-			Object.assign($progress.querySelector('span').style, { 
-				width: ((+$quiz.dataset.step + 1) / DATA.length * 100) + '%' 
+			results[this.dataset.step] = e.target.value;
+			
+			Object.assign($nodes.state.style, { 
+				width: ((+this.dataset.step + 1) / DATA.length * 100) + '%' 
 			});
-
-			$next.removeAttribute('disabled');
+			
+			$nodes.next.removeAttribute('disabled');
 		}
 	});
-
-
-	$quiz.addEventListener('click', (e) => {
+	
+	
+	$quiz.addEventListener('click', function(e) {
 		// обработчик кнопки "далее"
 		if (e.target.closest('.p-quiz__btn_next')) {
-			const nextStep = +$quiz.dataset.step + 1;
+			const nextStep = +this.dataset.step + 1;
 			
 			if (DATA.length <= nextStep) {
-				$page.style.display = 'none';
-				$next.style.display = 'none';
-				$progress.style.display = 'none';
-				$restart.style.display = 'block';
+				Object.values($nodes).map(node => node.style.display = 'none');
 				renderResults();
 			} else {
 				renderPage(nextStep);
 			}
 			
-			$next.setAttribute('disabled', '');
+			$nodes.next.setAttribute('disabled', '');
 		}
 		// обработчик кнопки "рестарт"
 		if (e.target.closest('.p-quiz__btn_restart')) {
-			let elements = [$results, $page, $progress, $next, $restart, $progress.querySelector('span')];
-
-			elements.map(item => item.removeAttribute('style'));
-			$results.innerHTML = '';
+			Object.values($nodes).map(node => node.removeAttribute('style'));
+			$nodes.results.innerHTML = '';
 			results = {};
 
 			renderPage(0);

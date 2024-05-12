@@ -7,12 +7,10 @@
 				"correct": true
 			},
 			{
-				"text": "Ответ 2",
-				"correct": false
+				"text": "Ответ 2"
 			},
 			{
-				"text": "Ответ 3",
-				"correct": false
+				"text": "Ответ 3"
 			}
 		]
 	},
@@ -20,8 +18,7 @@
 		"question": "Второй вопрос",
 		"answers": [
 			{
-				"text": "Ответ 1",
-				"correct": false
+				"text": "Ответ 1"
 			},
 			{
 				"text": "Ответ 2",
@@ -33,16 +30,14 @@
 		"question": "Третий вопрос",
 		"answers": [
 			{
-				"text": "Ответ 1",
-				"correct": false
+				"text": "Ответ 1"
 			},
 			{
 				"text": "Ответ 2",
 				"correct": true
 			},
 			{
-				"text": "Ответ 3",
-				"correct": false
+				"text": "Ответ 3"
 			}
 		]
 	}
